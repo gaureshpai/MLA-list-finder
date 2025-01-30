@@ -75,7 +75,9 @@ app.use(cors());
   }
  }
  
-
+app.get('/',(c)=>{
+  return c.text('Server Started!') 
+})
 app.get('/mlalist/:statename', async(c) => {
   const {statename} = c.req.param();
   const data  = await scrapeMLAList(statename);
