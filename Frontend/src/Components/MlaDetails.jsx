@@ -48,8 +48,7 @@ const MlaDetails = () => {
             setgender(gender);
             seteducation(education);
             setimage(image);
-            console.log(name,state,Constituency,Party,StartOfTerm);
-            
+
     })
     .catch((error) => {
         setError(true);
