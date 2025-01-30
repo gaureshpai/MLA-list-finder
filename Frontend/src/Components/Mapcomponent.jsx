@@ -113,10 +113,10 @@ const MapComponent = () => {
             <h2 className="text-xl font-bold text-gray-700">Location Details:</h2>
 
             {loading ? (
-              <div className="text-gray-500 text-lg">Loading...</div>
+              <div className="text-gray-500 text-lg">Loading....</div>
             ) : error ? (
               <div className="text-red-500 text-lg">
-                Error fetching location data. Please select a location inside the Indian map again.
+                Error fetching location data.Please select a location inside the Indian map again.
               </div>
             ) : (
               <div className="text-left space-y-4">
