@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "CommonJS",  
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,  
     "skipLibCheck": true,
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-  }
+    "outDir": "./dist",  
+    "rootDir": "./",     
+    "moduleResolution": "node"
+  },
+  "include": ["index.ts", "src/**/*"],  
+  "exclude": ["node_modules"] 
 }
