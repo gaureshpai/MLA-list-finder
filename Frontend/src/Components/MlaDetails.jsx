@@ -33,22 +33,23 @@ const MlaDetails = () => {
         const {
             name,
             state,
-            Constituency,
-            Party,StartOfTerm,
+            constituency,
+            party,startOfTerm,
             age,gender,
             education,
             image} = data;
 
             setname(name);
             setstate(state);
-            setConstituency(Constituency);
-            setParty(Party);
-            setstartofterm(StartOfTerm);
+            setConstituency(constituency);
+            setParty(party);
+            setstartofterm(startOfTerm);
             setage(age);
             setgender(gender);
             seteducation(education);
             setimage(image);
-    
+            console.log(name,state,Constituency,Party,StartOfTerm);
+            
     })
     .catch((error) => {
         setError(true);
