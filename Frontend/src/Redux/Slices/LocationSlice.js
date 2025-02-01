@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  locations: JSON.parse(localStorage.getItem('locations')) || [], 
+  locations: JSON.parse(localStorage.getItem('locations')) || [],
 };
 
 const locationSlice = createSlice({
@@ -9,8 +9,8 @@ const locationSlice = createSlice({
   initialState,
   reducers: {
     addLocation: (state, action) => {
-      state.locations = [action.payload]; 
-      localStorage.setItem('locations', JSON.stringify(state.locations)); 
+      state.locations = [action.payload];
+      localStorage.setItem('locations', JSON.stringify(state.locations));
     },
     clearLocations: (state) => {
       state.locations = [];

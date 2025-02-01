@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import PropTypes from 'prop-types';
 
 const Card = ({ Name, place, age, state, party, fullWidth }) => {
   const navigate = useNavigate();
@@ -44,3 +45,13 @@ const Card = ({ Name, place, age, state, party, fullWidth }) => {
 };
 
 export default Card;
+
+
+Card.propTypes = {
+  Name: PropTypes.string.isRequired,
+  place: PropTypes.string,
+  age: PropTypes.number,
+  state: PropTypes.string,
+  party: PropTypes.string,
+  fullWidth: PropTypes.bool,
+};
