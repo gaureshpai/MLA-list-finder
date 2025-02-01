@@ -46,7 +46,6 @@ const Card = ({ Name, place, age, state, party, fullWidth }) => {
 
 export default Card;
 
-
 Card.propTypes = {
   Name: PropTypes.string.isRequired,
   place: PropTypes.string,
