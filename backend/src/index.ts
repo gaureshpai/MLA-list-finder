@@ -12,12 +12,12 @@ async function scrapeMLAList(StateName: string) {
   try {
     const { data } = await axios.get(`https://prsindia.org/mlatrack?state=${StateName}`);
     const $ = cheerio.load(data);
-    const mlaList = [];
+    const mlaList: any = [];
 
     $('.row.view-content .views-row').each(function () {
-      const name = $(this).find('h3').text().trim() || 'Unknown Name'; 
+      const name = $(this).find('h3').text().trim() || 'Unknown Name';
       const place = $(this).find('.views-field-field-net-revenue-railway').text().trim().toLowerCase() || 'Unknown Place';
-      const state = $(this).find('.views-field-php').text().trim() || 'Unknown State'; 
+      const state = $(this).find('.views-field-php').text().trim() || 'Unknown State';
       const age = $(this).find('.views-field-field-mla-age').text().trim() || 'Unknown Age';
       const party = $(this).find('.views-field-field-political-party').text().trim() || 'Unknown Party';
       mlaList.push({ name, place, age, state, party });
@@ -38,7 +38,7 @@ async function getMlaDetails(MlaName: string) {
   try {
     const { data } = await axios.get(`https://prsindia.org/mlatrack/${MlaName}`);
     const $ = cheerio.load(data);
-    const mlaDetails = [];
+    const mlaDetails: any = [];
 
     $('.row.mp_profile_header_info').each(function () {
       const name = $(this).find('.mla-name .field-item').text().trim();

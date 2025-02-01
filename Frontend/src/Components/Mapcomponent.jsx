@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router';
 const API = import.meta.env.VITE_API_KEY;
 const MapComponent = () => {
   //hooks
-  const [Detailsdiv, setDetailsdiv] = useState(false); 
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(false); 
+  const [Detailsdiv, setDetailsdiv] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   //usedfunctions
   const mapRef = useRef(null);
@@ -19,15 +19,15 @@ const MapComponent = () => {
 
   //reduxdatacollections
   const locations = useSelector((state) => state.location.locations);
-  const locationData = locations[0] || {}; 
+  const locationData = locations[0] || {};
 
- //functionsevents
+  //functionsevents
   const onMapClick = async (e) => {
-    setDetailsdiv(true); 
-    setLoading(true); 
+    setDetailsdiv(true);
+    setLoading(true);
 
     try {
-      setError(false); 
+      setError(false);
       const response = await axios.get(
         `https://api.maptiler.com/geocoding/${e.latlng.lng},${e.latlng.lat}.json?key=${API}`
       );
@@ -38,9 +38,8 @@ const MapComponent = () => {
         const District = response.data.features[featuresLength - 4];
         const City = response.data.features[featuresLength - 5];
         const Country = response.data.features[featuresLength - 2];
-        
-        
-        if (State && District && City && Country.text==='India') {
+
+        if (State && District && City && Country.text === 'India') {
           dispatch(
             addLocation({
               StateName: State.text || '',
@@ -54,12 +53,12 @@ const MapComponent = () => {
       }
     } catch (err) {
       setError(true);
+      console.log(err);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
- 
   useEffect(() => {
     if (!mapRef.current) {
       const map = L.map('map', {
@@ -86,7 +85,6 @@ const MapComponent = () => {
       }
     };
   }, []);
-
   
   const discardData = () => {
     dispatch(clearLocations());
@@ -95,7 +93,7 @@ const MapComponent = () => {
     setError(false);
   };
 
-  const OnSubmitData=(e)=>{
+  const OnSubmitData = (e) => {
     e.preventDefault();
     navigate('/mlalist')
   }
@@ -159,7 +157,7 @@ const MapComponent = () => {
             <div className="flex justify-between space-x-4 mt-4">
               {!error && !loading && (
                 <button className="w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700 hover:cursor-pointer"
-                onClick={OnSubmitData}
+                  onClick={OnSubmitData}
                 >
                   Search
                 </button>

@@ -26,7 +26,7 @@ const MlaList = () => {
     if (!CityName || !StateName) {
       setLoading(false);
       setError(true);
-      return; 
+      return;
     }
 
     setLoading(true);
@@ -48,6 +48,7 @@ const MlaList = () => {
       .catch((err) => {
         setError(true);
         setLoading(false);
+        console.error(err);
       });
   }, [locations]);
 
@@ -72,8 +73,7 @@ const MlaList = () => {
 
   return (
     <div className="container mx-auto p-4">
-
-<div className="mb-4">
+      <div className="mb-4">
         <input
           type="text"
           className="w-full p-2 border rounded-md bg-gray-100"
@@ -120,11 +120,10 @@ const MlaList = () => {
       )}
 
       <div
-        className={`grid gap-4 ${
-          data.length > 3
+        className={`grid gap-4 ${data.length > 3
             ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-5"
             : "grid-cols-1 sm:grid-cols-1 lg:grid-cols-1"
-        }`}
+          }`}
       >
         {filteredData.map((mla, index) => (
           <div key={index}>

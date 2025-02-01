@@ -1,8 +1,8 @@
 import './Loader.css'
 
 const Loader = () => {
-    return (
-      <div className="flex justify-center items-center h-screen w-full">
+  return (
+    <div className="flex justify-center items-center h-screen w-full">
       <div className="card">
         <div className="loader">
           <p>loading</p>
@@ -15,7 +15,7 @@ const Loader = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Loader;
