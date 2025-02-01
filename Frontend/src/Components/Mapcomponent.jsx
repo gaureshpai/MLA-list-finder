@@ -39,7 +39,6 @@ const MapComponent = () => {
         const City = response.data.features[featuresLength - 5];
         const Country = response.data.features[featuresLength - 2];
 
-
         if (State && District && City && Country.text === 'India') {
           dispatch(
             addLocation({
@@ -59,7 +58,6 @@ const MapComponent = () => {
       setLoading(false);
     }
   };
-
 
   useEffect(() => {
     if (!mapRef.current) {
@@ -87,8 +85,7 @@ const MapComponent = () => {
       }
     };
   }, []);
-
-
+  
   const discardData = () => {
     dispatch(clearLocations());
     setDetailsdiv(false);
