@@ -2,6 +2,7 @@ import { data, useParams } from 'react-router';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+
 const MlaDetails = () => {
   const { Name } = useParams();
   const formattedName = Name.replace(/[^a-zA-Z0-9]/g, "-")
@@ -123,7 +124,6 @@ const MlaDetails = () => {
           </div>
           <div className="absolute rounded-full bg-gray-500 z-20 left-1/2 top-[22%] h-[110%] w-[110%] -translate-x-1/2 group-hover:top-[40%] transition-all duration-200" />
           <div className="para uppercase text-center leading-none z-40">
-
             <p className="font-bold text-xl tracking-wider text-gray-500">{name}</p>
           </div>
           <div className="img w-[180px] aspect-square bg-gray-100 z-40 rounded-md ">
